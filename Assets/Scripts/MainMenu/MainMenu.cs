@@ -18,10 +18,12 @@ public class MainMenu : MonoBehaviour
 	public void OnNewGamePressed()
 	{
 		DataManager.Instance.NewGame();
-		SceneManager.LoadSceneAsync(0);
+		DataManager.Instance.SaveGame();
+		SceneManager.LoadSceneAsync(1);
 	}
 	public void OnContinuePressed()
 	{
-		SceneManager.LoadSceneAsync(0);
+		DataManager.Instance.SaveGame();
+		SceneManager.LoadSceneAsync(1);
 	}
 }

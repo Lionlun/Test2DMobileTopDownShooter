@@ -16,13 +16,11 @@ public class DataManager : MonoBehaviour
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
-		SceneManager.sceneUnloaded += OnSceneUnloaded;
 	}
 
 	private void OnDisable()
 	{
 		SceneManager.sceneLoaded -= OnSceneLoaded;
-		SceneManager.sceneUnloaded -= OnSceneUnloaded;
 	}
 
 	private void Awake()
@@ -86,10 +84,6 @@ public class DataManager : MonoBehaviour
 		await Task.Delay(100);
 		this.dataSaves = FindAllDataSaveObjects();
 		LoadGame();
-	}
-	public void OnSceneUnloaded(Scene scene)
-	{
-		SaveGame();
 	}
 
 	public bool HasGameData()
