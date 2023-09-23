@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +6,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
 	[SerializeField] private Button continueButton;
+
 	private async void Start()
 	{
 		await Task.Delay(200);
@@ -25,6 +24,4 @@ public class MainMenu : MonoBehaviour
 	{
 		SceneManager.LoadSceneAsync(0);
 	}
-
-	
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 	private Animator animator;
-	private Rigidbody2D rb;
     private float minDistanceToPlayer = 0.7f;
 	private float speed = 2;
 	private Vector3 localScale;
@@ -13,7 +12,6 @@ public class EnemyMovement : MonoBehaviour
 	{
 		localScale = transform.localScale;
 		animator = GetComponent<Animator>();
-		rb = GetComponent<Rigidbody2D>();
 	}
 
 	private void MoveToPlayer(Vector3 player)

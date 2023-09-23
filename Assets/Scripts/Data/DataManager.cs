@@ -13,7 +13,6 @@ public class DataManager : MonoBehaviour
 	private List<IDataSave> dataSaves;
 	private FileDataHandler dataHandler;
 
-
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
@@ -45,6 +44,7 @@ public class DataManager : MonoBehaviour
 	{
 		this.gameData = new GameData();
 	}
+
 	public void LoadGame()
 	{
 		this.gameData = dataHandler.Load();

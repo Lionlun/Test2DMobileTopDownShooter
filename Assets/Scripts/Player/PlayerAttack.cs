@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 public class PlayerAttack : MonoBehaviour
 {
 	[SerializeField] private Transform shootingPoint;
-	[SerializeField] private TextMeshProUGUI AmmoText;
+	[SerializeField] private TextMeshProUGUI ammoText;
 	[SerializeField] private GunInfo currentGun;
 	private Vector3 direction;
 	private bool isWithinRange;
@@ -44,15 +44,15 @@ public class PlayerAttack : MonoBehaviour
 	{
 		return currentGun;
 	}
+
 	private void UpdateAmmoText()
 	{
-		AmmoText.text = currentGun.CurrentAmmo + "/" + currentGun.MagazineSize;
+		ammoText.text = currentGun.CurrentAmmo + "/" + currentGun.MagazineSize;
 	}
 
 	private async void Reload()
 	{
 		await Task.Delay((int)currentGun.ReloadTime*1000); // Заглушка, имитация перезарядки
-		Debug.Log("Reload");
 		currentGun.CurrentAmmo = currentGun.MagazineSize;
 		UpdateAmmoText();
 	}

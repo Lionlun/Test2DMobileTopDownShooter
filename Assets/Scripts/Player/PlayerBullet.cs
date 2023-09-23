@@ -19,7 +19,6 @@ public class PlayerBullet : MonoBehaviour
 	{
 		if (collision.gameObject.GetComponent<EnemyBase>() != null)
 		{
-			Debug.Log("EnemyHit");
 			var enemyHealth = collision.gameObject.GetComponent<Health>();
 			enemyHealth.GetHit(damage);
 			Destroy(this.gameObject);

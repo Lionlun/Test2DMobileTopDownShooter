@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour, IDataSave
@@ -11,7 +10,6 @@ public class EnemySpawner : MonoBehaviour, IDataSave
     {
         for (int i = 0; i < enemiesNumber; i++)
         {
-
 			if (existingIds.ContainsKey(i))
 			{
 				var oldEnemy = Instantiate(enemyPrefab, existingIds[i], Quaternion.identity);

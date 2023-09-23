@@ -10,6 +10,7 @@ public class EnemyKilledInfo : MonoBehaviour, IDataSave
 	{
 		GlobalEvents.OnEnemyDead += CountKills;
 	}
+
 	private void OnDisable()
 	{
 		GlobalEvents.OnEnemyDead -= CountKills;
@@ -23,7 +24,6 @@ public class EnemyKilledInfo : MonoBehaviour, IDataSave
 
 	public void SaveData(ref GameData data)
 	{
-		Debug.Log("Kills are counted");
 		data.MonstersKilled = this.OverallMonstersKilled;
 	}
 	private void CountKills()

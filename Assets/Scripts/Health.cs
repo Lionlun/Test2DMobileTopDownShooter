@@ -10,9 +10,7 @@ public class Health : MonoBehaviour
 
 	private void Awake()
 	{
-		Debug.Log("CURRENT HEALTH UPD");
 		CurrentHealth = maxHealth;
-
 	}
 	private void Start()
 	{
