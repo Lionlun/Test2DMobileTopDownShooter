@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f423e01bff1a6a44990307dd2776a079, type: 3}
-  m_Name: Ammo
+  m_Name: Gem
   m_EditorClassIdentifier: 
   Id: 3
-  Name: Ammo
-  Icon: {fileID: 21300000, guid: d45f0cae013abb84688afe6e4bc52845, type: 3}
+  Name: Gem
+  Icon: {fileID: 21300000, guid: 059e0200b58f439459fd2ce08a794e91, type: 3}
