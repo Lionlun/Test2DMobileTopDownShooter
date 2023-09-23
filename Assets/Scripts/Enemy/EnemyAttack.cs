@@ -7,6 +7,7 @@ public class EnemyAttack : MonoBehaviour
 	private Health playerHealth;
 	private float attackCooldown;
 	private float attackCooldownRefresh = 1f;
+	[SerializeField] private Animator animator;
 
 	private void Start()
 	{
@@ -22,9 +23,13 @@ public class EnemyAttack : MonoBehaviour
 	{
 		if(isWithinAttackRange && attackCooldown <=0)
 		{
-			Debug.Log("Attack!");
+			animator.SetBool("IsAttacking", true);
 			playerHealth.GetHit(damage);
 			attackCooldown = attackCooldownRefresh;
+		}
+		else
+		{
+			animator.SetBool("IsAttacking", false);
 		}
 	}
 
@@ -40,9 +45,8 @@ public class EnemyAttack : MonoBehaviour
 	{
 		if (collision.gameObject.GetComponent<PlayerMovement>() != null)
 		{
-			isWithinAttackRange = true;
 			playerHealth = collision.gameObject.GetComponent<Health>();
-			
+			isWithinAttackRange = true; 
 		}
 	}
 
