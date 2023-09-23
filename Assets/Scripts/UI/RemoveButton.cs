@@ -18,5 +18,9 @@ public class RemoveButton : MonoBehaviour
 		{
 			distribution.Remove(slot);
 		}
+		if(slot.Quantity <= 0)
+		{
+			this.gameObject.SetActive(false);
+		}
 	}
 }
