@@ -1,41 +1,39 @@
 using UnityEngine;
 
+[RequireComponent(typeof(DeathHandler))]
 public class Health : MonoBehaviour
 {
+	public int CurrentHealth { get; set; }
 	[SerializeField] private int maxHealth = 100;
 	[SerializeField] private HealthUI healthUI;
-	private int currentHealth;
+	private DeathHandler deathHandler;
 
 	private void Start()
 	{
-		currentHealth = maxHealth;
+		CurrentHealth = maxHealth;
+		deathHandler = GetComponent<DeathHandler>();
 	}
 
 	public void GetHit(int damage) 
 	{
-		currentHealth -= damage;
-		healthUI.UpdateHealthBar(currentHealth);
+		CurrentHealth -= damage;
+		healthUI.UpdateHealthBar(CurrentHealth);
 
-		if (currentHealth <= 0) 
+		if (CurrentHealth <= 0) 
 		{
-			Die();
+			deathHandler.Die();
 		}
 	}
 
 	public void GetHealth(int health)
 	{
-		currentHealth += health;
+		CurrentHealth += health;
 
-		if (currentHealth > maxHealth)
+		if (CurrentHealth > maxHealth)
 		{
-			currentHealth = maxHealth;
+			CurrentHealth = maxHealth;
 		}
 
-		healthUI.UpdateHealthBar(currentHealth);
-	}
-
-	private void Die()
-	{
-		Destroy(this.gameObject);
+		healthUI.UpdateHealthBar(CurrentHealth);
 	}
 }
