@@ -52,4 +52,13 @@ public class Slot : MonoBehaviour
 			text.text = "";
 		}
 	}
+
+	public void ClearSlot()
+	{
+		Item = null;
+		Quantity = 0;
+		Icon.sprite = defaultIcon;
+		IsOccupied = false;
+		text.text = "";
+	}
 }
