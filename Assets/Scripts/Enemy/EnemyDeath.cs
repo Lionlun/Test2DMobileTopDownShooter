@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyDeath : DeathHandler
 {
 	private ItemSpawn itemSpawn;
+	private GlobalEvents globalEvents = new GlobalEvents();
 
 	private void Start()
 	{
@@ -15,6 +16,10 @@ public class EnemyDeath : DeathHandler
 	public override void Die()
 	{
 		itemSpawn.SpawnRandomItem(transform.position);
+		globalEvents.SendEnemyDead();
 		base.Die();
 	}
+
+
+
 }
