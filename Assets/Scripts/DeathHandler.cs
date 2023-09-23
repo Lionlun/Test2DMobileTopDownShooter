@@ -5,6 +5,6 @@ public class DeathHandler : MonoBehaviour
 {
 	public virtual void Die()
 	{
-		Destroy(this.gameObject);
+		this.gameObject.SetActive(false);
 	}
 }
