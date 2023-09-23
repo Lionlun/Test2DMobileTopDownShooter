@@ -1,11 +1,41 @@
-using Unity.VisualScripting;
+using UnityEngine;
 
-public class Enemy : EnemyBase
+[RequireComponent(typeof(EnemyDeath))]
+public class Enemy : EnemyBase, IDataSave
 {
-	private GlobalEvents globalEvents = new GlobalEvents();
+	private bool isDead;
 
-	private void OnDestroy()
+	private void OnDisable()
 	{
-		globalEvents.SendEnemyDead();
+		isDead = true;
+	}
+
+	public void LoadData(GameData data)
+	{
+		if (data.Enemies.ContainsKey(Id))
+		{
+			transform.position = data.Enemies[Id];
+		}
+
+		if (data.DeadEnemies.Contains(Id))
+		{
+			data.Enemies.Remove(Id);
+			this.gameObject.SetActive(false);
+		}
+	}
+
+	public void SaveData(ref GameData data)
+	{
+		if (data.Enemies.ContainsKey(Id))
+		{
+			data.Enemies.Remove(Id);
+		}
+
+		data.Enemies.Add(Id, transform.position);
+		if (isDead)
+		{
+			data.Enemies.Remove(Id);
+			data.DeadEnemies.Add(Id);
+		}
 	}
 }
