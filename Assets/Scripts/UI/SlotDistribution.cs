@@ -5,7 +5,6 @@ public class SlotDistribution : MonoBehaviour
 {
 	[SerializeField] private List<Slot> slots;
 	private Dictionary<int, int> ocuppiedSlots = new Dictionary<int, int>();
-	private int currentSlotIndex = 0;
 
 	public void Add(Item item)
 	{
@@ -21,7 +20,7 @@ public class SlotDistribution : MonoBehaviour
 			{
 				if (!slots[i].IsOccupied)
 				{
-					slots[i].SetItem(item);
+					slots[i].SetItem(item); //Изменить quuantity ++
 					slots[i].Quantity++;
 					slots[i].SetQuantity();
 					ocuppiedSlots.Add(item.Id, i);
@@ -41,15 +40,23 @@ public class SlotDistribution : MonoBehaviour
 
 		if(slots[slotIndex].Quantity > 1)
 		{
-			slots[slotIndex].Quantity--;
+			slots[slotIndex].Quantity--; // Change
 			slots[slotIndex].SetQuantity();
 		}
 		else if(slots[slotIndex].Quantity <= 1)
 		{
 			ocuppiedSlots.Remove(slots[slotIndex].Item.Id);
-			slots[slotIndex].Quantity--;
+			slots[slotIndex].Quantity--; //Change
 			slots[slotIndex].SetQuantity();
 			slots[slotIndex].RemoveItem();
+		}
+	}
+
+	public void ClearAllSlots()
+	{
+		foreach(var slot in slots)
+		{
+			slot.ClearSlot();
 		}
 	}
 }
