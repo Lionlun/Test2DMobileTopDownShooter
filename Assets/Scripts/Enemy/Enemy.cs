@@ -12,29 +12,29 @@ public class Enemy : EnemyBase, IDataSave
 
 	public void LoadData(GameData data)
 	{
-		if (data.Enemies.ContainsKey(Id))
+		if (data.EnemiesPosition.ContainsKey(Id))
 		{
-			transform.position = data.Enemies[Id];
+			transform.position = data.EnemiesPosition[Id];
 		}
 
 		if (data.DeadEnemies.Contains(Id))
 		{
-			data.Enemies.Remove(Id);
+			data.EnemiesPosition.Remove(Id);
 			this.gameObject.SetActive(false);
 		}
 	}
 
 	public void SaveData(ref GameData data)
 	{
-		if (data.Enemies.ContainsKey(Id))
+		if (data.EnemiesPosition.ContainsKey(Id))
 		{
-			data.Enemies.Remove(Id);
+			data.EnemiesPosition.Remove(Id);
 		}
 
-		data.Enemies.Add(Id, transform.position);
+		data.EnemiesPosition.Add(Id, transform.position);
 		if (isDead)
 		{
-			data.Enemies.Remove(Id);
+			data.EnemiesPosition.Remove(Id);
 			data.DeadEnemies.Add(Id);
 		}
 	}

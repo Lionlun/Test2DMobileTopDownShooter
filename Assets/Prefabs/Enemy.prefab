@@ -437,11 +437,12 @@ GameObject:
   - component: {fileID: 3250867124716345810}
   - component: {fileID: 3250867124716345808}
   - component: {fileID: 4349083094479146105}
-  - component: {fileID: 3250867124716345809}
-  - component: {fileID: 3250867124716345812}
-  - component: {fileID: 6828730996208258560}
+  - component: {fileID: 4838477011778601985}
   - component: {fileID: 259230128244011119}
   - component: {fileID: 5915050325286911945}
+  - component: {fileID: 8017284597417062547}
+  - component: {fileID: 3250867124716345809}
+  - component: {fileID: 3250867124716345812}
   - component: {fileID: 1458886886683873598}
   m_Layer: 0
   m_Name: Enemy
@@ -493,6 +494,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1792f73cf64ad4ca17dab6a5dc2b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4838477011778601985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250867124716345806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b20f689c9142ed4591f207e8b3e0f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  HealthUI: {fileID: 3250867126274528796}
+  enemy: {fileID: 3250867124716345808}
+--- !u!114 &259230128244011119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250867124716345806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3cb416ceebb5d4aa04d22c20cee6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5915050325286911945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250867124716345806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0387d480932e214dad577efc1c38e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToDrop:
+  - {fileID: 7310029694030160206, guid: 6715174fa64dbcc4cb25c0c2e438b300, type: 3}
+  - {fileID: 554081618340807812, guid: 74527c3f544b25747aa7fb9417f058af, type: 3}
+  - {fileID: 4025078847261309926, guid: 2820b42ef88360342a15a65eddbb4635, type: 3}
+--- !u!114 &8017284597417062547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250867124716345806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0b9c005d2a083478b0f1bfa04d92ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &3250867124716345809
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -540,48 +596,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6828730996208258560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250867124716345806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a7fcb4fc556c242943f77b3c3385b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthUI: {fileID: 3250867126274528796}
---- !u!114 &259230128244011119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250867124716345806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3cb416ceebb5d4aa04d22c20cee6bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5915050325286911945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250867124716345806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0387d480932e214dad577efc1c38e81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToDrop:
-  - {fileID: 7310029694030160206, guid: 6715174fa64dbcc4cb25c0c2e438b300, type: 3}
-  - {fileID: 554081618340807812, guid: 74527c3f544b25747aa7fb9417f058af, type: 3}
-  - {fileID: 4025078847261309926, guid: 2820b42ef88360342a15a65eddbb4635, type: 3}
 --- !u!95 &1458886886683873598
 Animator:
   serializedVersion: 5

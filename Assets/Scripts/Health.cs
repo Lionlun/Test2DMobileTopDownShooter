@@ -5,23 +5,28 @@ public class Health : MonoBehaviour
 {
 	public int CurrentHealth { get; set; }
 	[SerializeField] private int maxHealth = 100;
-	[SerializeField] private HealthUI healthUI;
-	private DeathHandler deathHandler;
+	[SerializeField] protected HealthUI HealthUI;
+	private DeathHandler DeathHandler;
 
+	private void Awake()
+	{
+		Debug.Log("CURRENT HEALTH UPD");
+		CurrentHealth = maxHealth;
+
+	}
 	private void Start()
 	{
-		CurrentHealth = maxHealth;
-		deathHandler = GetComponent<DeathHandler>();
+		DeathHandler = GetComponent<DeathHandler>();
 	}
 
 	public void GetHit(int damage) 
 	{
 		CurrentHealth -= damage;
-		healthUI.UpdateHealthBar(CurrentHealth);
+		HealthUI.UpdateHealthBar(CurrentHealth);
 
 		if (CurrentHealth <= 0) 
 		{
-			deathHandler.Die();
+			DeathHandler.Die();
 		}
 	}
 
@@ -34,6 +39,11 @@ public class Health : MonoBehaviour
 			CurrentHealth = maxHealth;
 		}
 
-		healthUI.UpdateHealthBar(CurrentHealth);
+		HealthUI.UpdateHealthBar(CurrentHealth);
+	}
+
+	public void UpdateHealthUI()
+	{
+		HealthUI.UpdateHealthBar(CurrentHealth);
 	}
 }

@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour, IDataSave
     private int enemiesNumber = 3;
 	private SerializableDictionary<int, Vector3> existingIds = new SerializableDictionary<int, Vector3>();
 
-    void Start() // переместить в новую игру
+    void Start()
     {
         for (int i = 0; i < enemiesNumber; i++)
         {
@@ -28,14 +28,14 @@ public class EnemySpawner : MonoBehaviour, IDataSave
 
     private Vector2 GenerateRandomPosition()
     {
-        var randomX = Random.Range(-8f, 8f);
+        var randomX = Random.Range(-4f, 6f);
         var randomY = Random.Range(-1.5f, 1.5f);
         return new Vector2(randomX, randomY);
     }
 
 	public void LoadData(GameData data)
 	{
-		foreach(var enemy in data.Enemies)
+		foreach(var enemy in data.EnemiesPosition)
 		{
 			existingIds.Add(enemy.Key, enemy.Value);
 		}

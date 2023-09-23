@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-	protected int Id;
+	public int Id { get; private set; }
 
 
 	public void SetId(int id)
