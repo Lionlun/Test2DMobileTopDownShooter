@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ArmProcedual : MonoBehaviour
+public class ArmSnapToWeapon : MonoBehaviour
 {
 	[SerializeField] private Transform target;
 

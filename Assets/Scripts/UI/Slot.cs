@@ -14,7 +14,7 @@ public class Slot : MonoBehaviour
 
 	private void Start()
 	{
-		SetQuantity();
+		UpdateQuantityUI();
 	}
 
 	public void SetItem(Item item)
@@ -31,17 +31,7 @@ public class Slot : MonoBehaviour
 		Item = null;
 	}
 
-	private void SetIcon()
-	{
-		Icon.sprite = Item.Icon;
-	}
-
-	private void RemoveIcon()
-	{
-		Icon.sprite = defaultIcon;
-	}
-
-	public void SetQuantity()
+	public void UpdateQuantityUI()
 	{
 		if (Quantity > 1)
 		{
@@ -60,5 +50,26 @@ public class Slot : MonoBehaviour
 		Icon.sprite = defaultIcon;
 		IsOccupied = false;
 		text.text = "";
+	}
+
+	public void AddQuantity()
+	{
+		Quantity++;
+		UpdateQuantityUI();
+	}
+	public void MinusQuantity()
+	{
+		Quantity--;
+		UpdateQuantityUI();
+	}
+
+	private void SetIcon()
+	{
+		Icon.sprite = Item.Icon;
+	}
+
+	private void RemoveIcon()
+	{
+		Icon.sprite = defaultIcon;
 	}
 }

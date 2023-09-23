@@ -11,8 +11,7 @@ public class SlotDistribution : MonoBehaviour
 		if (ocuppiedSlots.ContainsKey(item.Id))
 		{
 			var slotIndex = ocuppiedSlots[item.Id];
-			slots[slotIndex].Quantity++;
-			slots[slotIndex].SetQuantity();
+			slots[slotIndex].AddQuantity();
 		}
 		else
 		{
@@ -20,15 +19,10 @@ public class SlotDistribution : MonoBehaviour
 			{
 				if (!slots[i].IsOccupied)
 				{
-					slots[i].SetItem(item); //Изменить quuantity ++
-					slots[i].Quantity++;
-					slots[i].SetQuantity();
+					slots[i].SetItem(item);
+					slots[i].AddQuantity();
 					ocuppiedSlots.Add(item.Id, i);
 					return;
-				}
-				else
-				{
-					Debug.Log("Cell is occupied");
 				}
 			}
 		}
@@ -40,14 +34,12 @@ public class SlotDistribution : MonoBehaviour
 
 		if(slots[slotIndex].Quantity > 1)
 		{
-			slots[slotIndex].Quantity--; // Change
-			slots[slotIndex].SetQuantity();
+			slots[slotIndex].MinusQuantity();
 		}
 		else if(slots[slotIndex].Quantity <= 1)
 		{
 			ocuppiedSlots.Remove(slots[slotIndex].Item.Id);
-			slots[slotIndex].Quantity--; //Change
-			slots[slotIndex].SetQuantity();
+			slots[slotIndex].MinusQuantity();
 			slots[slotIndex].RemoveItem();
 		}
 	}

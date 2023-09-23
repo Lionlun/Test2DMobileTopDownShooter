@@ -7,6 +7,11 @@ public class CameraFollow : MonoBehaviour
 
 	private void Update()
 	{
+		FollowPlayer();
+	}
+
+	private void FollowPlayer()
+	{
 		if (player != null)
 		{
 			transform.position = player.position + zOffset;

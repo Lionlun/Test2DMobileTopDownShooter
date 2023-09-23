@@ -1,29 +1,25 @@
-
 using UnityEngine;
 
 public class EnemyHealth : Health, IDataSave
 {
 	[SerializeField] private EnemyBase enemy;
-	private int id;
 
 	public void LoadData(GameData data)
 	{
-		id = enemy.Id;
-
-		if (data.EnemyHealth.ContainsKey(id))
+		if (data.EnemyHealth.ContainsKey(enemy.Id))
 		{
-			CurrentHealth = data.EnemyHealth[id];
+			CurrentHealth = data.EnemyHealth[enemy.Id];
 			UpdateHealthUI();
 		}
 	}
 
 	public void SaveData(ref GameData data)
 	{
-		if (data.EnemyHealth.ContainsKey(id))
+		if (data.EnemyHealth.ContainsKey(enemy.Id))
 		{
-			data.EnemyHealth.Remove(id);
+			data.EnemyHealth.Remove(enemy.Id);
 		}
 
-		data.EnemyHealth.Add(id, CurrentHealth);
+		data.EnemyHealth.Add(enemy.Id, CurrentHealth);
 	}
 }
